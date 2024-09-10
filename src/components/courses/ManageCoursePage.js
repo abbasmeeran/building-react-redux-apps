@@ -7,7 +7,7 @@ import CourseForm from "./CourseForm";
 import { newCourse } from "../../../tools/mockData";
 import { toast } from "react-toastify";
 
-function ManageCoursePage({
+export function ManageCoursePage({
   courses,
   authors,
   loadCourses,
@@ -43,7 +43,7 @@ function ManageCoursePage({
     if (!authorId) errors.authorId = "Author is required";
     if (!category) errors.category = "Category is required";
     setErrors(errors);
-    return Object.keys(errors).length > 0;
+    return Object.keys(errors).length === 0;
   }
 
   function handleChange(event) {
@@ -56,7 +56,7 @@ function ManageCoursePage({
 
   function handleSave(event) {
     event.preventDefault();
-    if (!formIsValid) return;
+    if (!formIsValid()) return;
     setSaving(true);
     saveCourse(course)
       .then(() => {

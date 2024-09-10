@@ -1,5 +1,5 @@
 import * as types from "../actions/actionTypes";
-import initialState from "./initalState";
+import initialState from "./initialState";
 
 function isApiCallSuccessOrError(type) {
   return type.match(/.+_SUCCESS$/) || type.match(/.+_ERROR$/);
